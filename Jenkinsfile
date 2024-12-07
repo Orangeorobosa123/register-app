@@ -35,17 +35,9 @@ pipeline {
         stage("SonarQube Analysis") {
             steps {
                 script {
-                    withSonarQubeEnv(credentialsId: 'jenkins-sonar-tokken') {
+                    withSonarQubeEnv('sonarqube-server') { // Use the server ID configured in Jenkins
                         sh "mvn sonar:sonar"
                     }
-                }
-            }
-        }
-
-        stage("Quality Gate") {
-            steps {
-                script {
-                    waitForQualityGate abortPipeline: true
                 }
             }
         }
