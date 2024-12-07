@@ -82,5 +82,18 @@ pipeline {
                 }
             }
         }
+
+        // Clean up artifacts after build and Docker image push
+        stage("Clean Artifacts") {
+            steps {
+                script {
+                    // Clean up any temporary build or Docker images to free up space
+                    sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG} || true"  // Removes the built image
+                    sh "docker rmi ${IMAGE_NAME}:latest || true"         // Removes the latest image
+                    sh "mvn clean"                                       // Cleans up Maven build artifacts
+                    cleanWs()                                           // Clean up Jenkins workspace
+                }
+            }
+        }
     }
 }
