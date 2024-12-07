@@ -1,10 +1,9 @@
 pipeline {
     agent any
     tools {
-        jdk 'Java11'
+        jdk 'Java17'
         maven 'Maven3'
     }
-
     stages {
         stage("Cleanup Workspace") {
             steps {
@@ -14,9 +13,9 @@ pipeline {
 
         stage("Checkout from SCM") {
             steps {
-                git branch: 'main', 
-                    credentialsId: 'github', 
-                    url: 'https://github.com/Orangeorobosa123/register-app.git'
+                git branch: 'main',
+                    credentialsId: 'github',
+                    url: 'https://github.com/Ashfaque-9x/register-app'
             }
         }
 
@@ -35,7 +34,7 @@ pipeline {
         stage("SonarQube Analysis") {
             steps {
                 script {
-                    withSonarQubeEnv('jenkins-sonar-tokken') { // Correct syntax for withSonarQubeEnv
+                    withSonarQubeEnv(credentialsId: 'jenkins-sonar-token') { 
                         sh "mvn sonar:sonar"
                     }
                 }
