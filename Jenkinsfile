@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        jdk 'Java17'
+        jdk 'Java11'
         maven 'Maven3'
     }
     stages {
@@ -15,7 +15,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     credentialsId: 'github',
-                    url: 'https://github.com/Ashfaque-9x/register-app'
+                    url: 'https://github.com/Orangeorobosa123/register-app.git'
             }
         }
 
