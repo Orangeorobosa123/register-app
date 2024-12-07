@@ -35,7 +35,7 @@ pipeline {
         stage("SonarQube Analysis") {
             steps {
                 script {
-                    withSonarQubeEnv('sonarqube-server') { // Use the server ID configured in Jenkins
+                    withSonarQubeEnv('jenkins-sonar-tokken') { // Use the SonarQube token configured in Jenkins
                         sh "mvn sonar:sonar"
                     }
                 }
