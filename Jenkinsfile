@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'Jenkins-Agent' }
     tools {
         jdk 'Java11'
         maven 'Maven3'
@@ -10,7 +10,7 @@ pipeline {
         RELEASE = "1.0.0"
         DOCKER_USER = "ericxtx"
         DOCKER_PASS = 'dockerhub'
-        IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
+        IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}"
         IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
     }
 
@@ -83,7 +83,6 @@ pipeline {
             }
         }
 
-        // Clean up artifacts after build and Docker image push
         stage("Clean Artifacts") {
             steps {
                 script {
