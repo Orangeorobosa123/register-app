@@ -33,6 +33,6 @@
 
    <h1> Thank You </h1>
    <br>
-   <h1> Happy Learning. i have faith in Grace and love and God</h1>
+   <h1> Happy Learning. i have faith in Grace and love and God and i love my family and friends</h1>
    
 </form>
