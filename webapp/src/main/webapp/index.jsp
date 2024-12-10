@@ -33,6 +33,6 @@
 
    <h1> Thank You </h1>
    <br>
-   <h1> Happy Learning. See You Again. I love you Cynthia </h1>
+   <h1> Happy Learning. i love you Naya Elunor.</h1>
    
 </form>
