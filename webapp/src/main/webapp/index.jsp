@@ -33,6 +33,6 @@
 
    <h1> Thank You </h1>
    <br>
-   <h1> Happy Learning. i am a man of few words. </h1>
+   <h1> Happy Learning. i am a man of few words.</h1>
    
 </form>
